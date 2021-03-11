@@ -97,6 +97,7 @@ eks.privileged   true   *      RunAsAny   RunAsAny    RunAsAny   RunAsAny   fals
 | Kubernetes version      | 1.19 | 1.18 | 1.17 | 1.16 | 1.15|
 | :-----------: | :-----------: | :-----------: | :-----------: | :-----------: | :-----------: |
 | *KubeProxy*      | 1.19.6       | 1.18.8       | 1.17.9       | 1.16.13       | 1.15.11       |  
+
   a. Retrieve the currnet version of the Kube-Proxy  
   ```bash
   kubectl get daemonset kube-proxy --namespace kube-system -o=jsonpath='{$.spec.template.spec.containers[:1].image}'
