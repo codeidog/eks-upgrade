@@ -106,7 +106,7 @@ eks.privileged   true   *      RunAsAny   RunAsAny    RunAsAny   RunAsAny   fals
   <pre>
 <b>602401143452</b>.dkr.ecr.<b>eu-west-2</b>.amazonaws.com/eks/kube-proxy:v<b>1.16.13</b>-eksbuild.1
 </pre>  
-  b. Update the kube proxy image by replacing `602401143452` and `eu-west-2` with the result from your out put and `1.16.13` 
+  b. Update the kube proxy image by replacing `602401143452` and `eu-west-2` with the result from your output and `1.16.13` 
 with the supported version by your cluster  
 
 If you're deploying a version that is earlier than `1.19.6`, then replace `eksbuild.2` with `eksbuild.1`. 
