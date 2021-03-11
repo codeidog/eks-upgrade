@@ -151,8 +151,8 @@ kubectl set image daemonset.apps/kube-proxy \
   kube-proxy=<b>602401143452</b>.dkr.ecr.<b>eu-west-2</b>.amazonaws.com/eks/coredns:v<b>1.7.0</b>-eksbuild.1
 </pre>  
 
-  5. Upgrade the nodegroup 
-  a. Get your cluster name by running following command:  
+**Upgrade the node group**
+  1. Get your cluster name by running following command:  
   ```
   eksctl get cluster
   ```  
@@ -163,11 +163,11 @@ kubectl set image daemonset.apps/kube-proxy \
 NAME		REGION		EKSCTL CREATED
 ido-cluster	eu-west-2	True
 ```  
-  b. Get your nodegroup name by running the following command:  
+  2. Get your nodegroup name by running the following command:  
   ```bash
   eksctl get nodegroup --cluster=<cluster_name>
   ```  
-  c. Perform the upgrade to the node group by running the following command:  
+  3. Perform the upgrade to the node group by running the following command:  
   ```bash
   eksctl upgrade nodegroup \
    --cluster=<cluster_name> \
