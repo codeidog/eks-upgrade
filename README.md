@@ -146,9 +146,8 @@ c. Update the CoreDNS image by replacing `602401143452` and `eu-west-2` with the
 with the supported version by your cluster  
 
 <pre>
-kubectl set image daemonset.apps/kube-proxy \
-  -n kube-system \
-  kube-proxy=<b>602401143452</b>.dkr.ecr.<b>eu-west-2</b>.amazonaws.com/eks/coredns:v<b>1.7.0</b>-eksbuild.1
+kubectl set image --namespace kube-system deployment.apps/coredns \
+coredns=<b>602401143452</b>.dkr.ecr.<b>eu-west-2</b>.amazonaws.com/eks/coredns:v1.8.0-eksbuild.1
 </pre>  
 
 **Upgrade the node group**
