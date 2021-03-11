@@ -151,30 +151,30 @@ kubectl set image daemonset.apps/kube-proxy \
   kube-proxy=<b>602401143452</b>.dkr.ecr.<b>eu-west-2</b>.amazonaws.com/eks/coredns:v<b>1.7.0</b>-eksbuild.1
 </pre>  
 
-  5. Upgrade the nodegroup
+  5. Upgrade the nodegroup 
   a. Get your cluster name by running following command:  
   ```
   eksctl get cluster
-  ```
+  ```  
   **Example output:**  
   ```
   021-03-11 17:37:13 [ℹ]  eksctl version 0.40.0
 2021-03-11 17:37:13 [ℹ]  using region eu-west-2
 NAME		REGION		EKSCTL CREATED
 ido-cluster	eu-west-2	True
-```
-  b. Get your nodegroup name by running the following command:
+```  
+  b. Get your nodegroup name by running the following command:  
   ```bash
   eksctl get nodegroup --cluster=<cluster_name>
-  ```
-  c. Perform the upgrade to the node group by running the following command:
+  ```  
+  c. Perform the upgrade to the node group by running the following command:  
   ```bash
   eksctl upgrade nodegroup \
    --cluster=<cluster_name> \
    --name=<nodegroup_name> \
    --kubernetes-version=<to_version>
-   ```
-This command will spin a new node group with the required version and perform a rolling update by making the nodes with the old version unscheduleable.
+   ```  
+This command will spin a new node group with the required version and perform a rolling update by making the nodes with the old version unscheduleable.  
 ### Issues I have encountered:
   1. ***issue:*** When executing the upgrade from the aws console the nodes might not be scheduled on the same AZ, casuing STS to not be able to access their volume  
   ***resolution:*** create a new node group specifying the required AZ like so  
