@@ -1,0 +1,96 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "1"
+    meta.helm.sh/release-name: nginx-test
+    meta.helm.sh/release-namespace: default
+  creationTimestamp: "2021-03-09T12:41:03Z"
+  generation: 1
+  labels:
+    app.kubernetes.io/instance: nginx-test
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: nginx-test
+    app.kubernetes.io/version: 1.16.0
+    helm.sh/chart: nginx-test-0.1.0
+  name: nginx-test
+  namespace: default
+  resourceVersion: "10097"
+  selfLink: /apis/extensions/v1beta1/namespaces/default/deployments/nginx-test
+  uid: fdea5b61-f1fc-4286-8bc0-b91e8acc620b
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: nginx-test
+      app.kubernetes.io/name: nginx-test
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app.kubernetes.io/instance: nginx-test
+        app.kubernetes.io/name: nginx-test
+    spec:
+      containers:
+      - image: nginx:1.19.7
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /
+            port: http
+            scheme: HTTP
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1
+        name: nginx-test
+        ports:
+        - containerPort: 80
+          name: http
+          protocol: TCP
+        readinessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /
+            port: http
+            scheme: HTTP
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1
+        resources: {}
+        securityContext: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      serviceAccount: nginx-test
+      serviceAccountName: nginx-test
+      terminationGracePeriodSeconds: 30
+status:
+  availableReplicas: 1
+  conditions:
+  - lastTransitionTime: "2021-03-09T12:41:10Z"
+    lastUpdateTime: "2021-03-09T12:41:10Z"
+    message: Deployment has minimum availability.
+    reason: MinimumReplicasAvailable
+    status: "True"
+    type: Available
+  - lastTransitionTime: "2021-03-09T12:41:03Z"
+    lastUpdateTime: "2021-03-09T12:41:10Z"
+    message: ReplicaSet "nginx-test-78cc9bfc9" has successfully progressed.
+    reason: NewReplicaSetAvailable
+    status: "True"
+    type: Progressing
+  observedGeneration: 1
+  readyReplicas: 1
+  replicas: 1
+  updatedReplicas: 1

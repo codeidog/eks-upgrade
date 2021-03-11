@@ -1,0 +1,11 @@
+1. Upload an application with old API using flux
+2. Upgrade 1.15 to 1.16 
+3. Rollback
+
+Sunday:
+1. AWS, GIT, Slack, Email
+2. Build environment and understand the service and their relationships
+
+Monday:
+1. Deep dive into the environment
+2. Build cluster ad play with it or get permission to integration
